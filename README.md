@@ -24,9 +24,9 @@ npm install -g fern-api # Installs CLI
 fern check # Checks if the definition is valid
 ```
 
-## What are Generators?
+## What are generators?
 
-Generators read in your API Definition and output files or code (e.g. the TypeScript SDK Generator) and are tracked in [generators.yml](./fern/api/generators.yml).
+Generators read in your API Definition and output artifacts (e.g. the TypeScript SDK Generator) and are tracked in [generators.yml](./fern/api/generators.yml).
 
 To trigger the generators run:
 
