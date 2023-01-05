@@ -2,31 +2,22 @@ groups:
   external:
     generators:
       - name: fernapi/fern-typescript-sdk
-        version: 0.0.251
+        version: 0.0.254
         output:
           location: npm
-          package-name: '@fern-api/{company}'
+          package-name: '@fern-api/enveloop'
           token: ${FERN_NPM_TOKEN}
         github:
-          repository: fern-{company}/{company}-node
-      - name: fernapi/fern-java-sdk
-        version: 0.0.132
-        output:
-          location: maven
-          coordinate: io.github.fern-api:{company}
-          username: ${FERN_MAVEN_USERNAME}
-          password: ${FERN_MAVEN_TOKEN}
-        github:
-          repository: fern-{company}/{company}-java
+          repository: fern-enveloop/enveloop-node
       - name: fernapi/fern-openapi
-        version: 0.0.10
+        version: 0.0.14
         github:
-          repository: fern-{company}/{company}-openapi
+          repository: fern-enveloop/enveloop-openapi
       - name: fernapi/fern-postman
         version: 0.0.32
-        output: 
+        output:
           location: postman
           api-key: ${FERN_POSTMAN_API_KEY}
           workspace-id: ${FERN_POSTMAN_WORKSPACE_ID}
         github:
-          repository: fern-{company}/{company}-postman
+          repository: fern-enveloop/enveloop-postman

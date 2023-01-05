@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fern-api/fern/main/fern.schema.json
+
+services: 
+  http:
+    TemplateService:
+      auth: true
+      base-path: /templates
+      endpoints: 
+        get: 
+          display-name: Get template
+          docs: Get information about a template including the body of the template and any user defined variables that the template expect.
+          path: /{slug}
+          path-parameters:
+            slug: 
+              type: string
+              docs: The `slug` is required in the URL and can be found for a template by looking in the right drawer on the template edit.
+          method: GET 
+          response: Template
+          examples: 
+            - path-parameters:
+                slug: https://api.enveloop.com/templates/customer-invoice
+              response: 
+                body: 
+                  templateVariables:
+                    - invoiceAmount
+                    - invoiceNumber
+                  body: <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN"><html ... </html>
+
+types:
+  Template:
+    properties: 
+      templateVariables:
+        type: list<Variable>
+        docs: An array of the user defined variables found in the template
+      body:
+        type: string
+        docs: A preview of the body of the message with `{{ variables }}` intact like you would see at in the Enveloop editor.
+      
+      # Recommendation: use errors out-of-the-box from Fern.
+      # error:
+      #   type: string
+      #   docs: If an error is present you will get a *http status* of *500* and the error field will contain the error
+  
+  Variable: string
+

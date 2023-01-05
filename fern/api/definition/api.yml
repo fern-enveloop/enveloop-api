@@ -1,6 +1,12 @@
 name: api
 auth: bearer
 environments:
-  Production: https://api.example.com
-  Sandbox: https://sandbox.example.com
+  Production: 
+    url: https://api.enveloop.com
+    docs: Production tokens begin with `live_` and will send actual messages with the configured provider. 
+  Sandbox: 
+    url: https://sandbox.enveloop.com
+    docs: >
+      Sandbox token begin with `test_` and only mock the sending action. 
+      Therefore, calls made from your app, using your sandbox token, do not connect to the provider on the project. 
 default-environment: Production
